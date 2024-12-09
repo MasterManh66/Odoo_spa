@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_loyalty_program_discount_loyalty_action" model="ir.actions.act_window">
+        <field name="name">Discount</field>
+        <field name="res_model">loyalty.program</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <div class="o_loyalty_not_found container mt64">
+                <h1>No program found.</h1>
+                <p class="lead">Create one from scratch, or use a templates below:</p>
+            </div>
+        </field>
+    </record>
+
+    <!--<record id="sale_loyalty.menu_discount_loyalty_type_config" model="ir.ui.menu">
+        <field name="groups_id" eval="False"/>
+        <field name="action" eval="False"/>
+    </record>
+
+    <record id="sale_loyalty.menu_gift_ewallet_type_config" model="ir.ui.menu">
+        <field name="groups_id" eval="False"/>
+        <field name="action" eval="False"/>
+    </record>-->
+
+</odoo>

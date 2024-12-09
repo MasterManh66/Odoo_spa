@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="is_customer" invisible="0"/>
+                    <field name="is_supplier" invisible="0"/>
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='company_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='title']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='function']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div/div/field[@name='parent_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='zip']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="attributes">
+                    <label for="street">Địa chỉ</label>
+                    <attribute name="placeholder">Địa chỉ</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="attributes">
+                    <attribute name="placeholder">Xã/Phường</attribute>
+                </xpath>
+                <xpath expr="//field[@name='country_id']" position="attributes">
+                    <attribute name="options">{"no_open": False, "no_create": False}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="placeholder">Quận/Huyện</attribute>
+                    <attribute name="class">o_address_street</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="placeholder">Tỉnh/Thành phố</attribute>
+                    <attribute name="class">o_address_street</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('o_row')]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='lang']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_partners_form_crm1_inherit" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="schedule_meeting_inherit" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="calendar.view_partners_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='schedule_meeting']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="res_partner_view_purchase_buttons_inherit" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="purchase_stock.res_partner_view_purchase_buttons_inherit"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='%(purchase_stock.action_purchase_vendor_delay_report)d']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_crm_partner_geo_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.inherit.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base_geolocalize.view_crm_partner_geo_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='geo_location']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_partner_property_form_account_inherit" model="ir.ui.view">
+            <field name="name">res.partner.account_inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('alert-warning')]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='accounting']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="account.res_partner_action_customer" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_customer', '=', True)]</field>
+            <field name="context">{'search_default_customer': 1,'res_partner_search_mode': 'customer',
+                'default_is_company': True, 'default_customer_rank': 1}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo một khách hàng mới trong sổ địa chỉ của bạn
+                </p>
+                <p>
+                    Chúng tôi giúp bạn dễ dàng theo dõi tất cả hoạt động liên quan đến khách hàng.
+                </p>
+            </field>
+        </record>
+        <record id="res_partner_action_customer_inherit_action" model="ir.actions.act_window">
+            <field name="name">Khách hàng</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_customer', '=', True)]</field>
+            <field name="context">{"default_is_customer":True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo một khách hàng mới trong sổ địa chỉ của bạn
+                </p>
+                <p>
+                    Chúng tôi giúp bạn dễ dàng theo dõi tất cả hoạt động liên quan đến khách hàng.
+                </p>
+            </field>
+        </record>
+        <record id="account.res_partner_action_supplier" model="ir.actions.act_window">
+            <field name="name">Vendors</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_supplier', '=', True)]</field>
+            <field name="context">{'search_default_supplier': 1,'res_partner_search_mode': 'supplier',
+                'default_is_company': True, 'default_supplier_rank': 1}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo một nhà cung cấp mới trong sổ địa chỉ của bạn
+                </p>
+                <p>
+                    Chúng tôi giúp bạn dễ dàng theo dõi tất cả hoạt động liên quan đến nhà cung cấp.
+                </p>
+            </field>
+        </record>
+        <record id="res_partner_action_supplier_view_action" model="ir.actions.act_window">
+            <field name="name">Nhà cung cấp</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_supplier', '=', True)]</field>
+            <field name="context">{"default_is_supplier":True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tạo một nhà cung cấp mới trong sổ địa chỉ của bạn
+                </p>
+                <p>
+                    Chúng tôi giúp bạn dễ dàng theo dõi tất cả hoạt động liên quan đến nhà cung cấp.
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_contacts_supplier"
+                  name="Nhà cung cấp"
+                  action="res_partner_action_supplier_view_action"
+                  parent="contacts.menu_contacts"
+                  sequence="1"/>
+        <menuitem id="menu_contacts_customer"
+                  name="Khách hàng"
+                  action="res_partner_action_customer_inherit_action"
+                  parent="contacts.menu_contacts"
+                  sequence="0"/>
+<!--        <menuitem id="menu_contacts_supplier"-->
+<!--                  name="Nhà cung cấp"-->
+<!--                  action="res_partner_action_supplier_view_action"-->
+<!--                  web_icon="npp_contact,static/description/customer.png"-->
+<!--                  sequence="15"/>-->
+<!--        <menuitem id="menu_contacts_customer_root"-->
+<!--                  name="Khách hàng"-->
+<!--                  web_icon="npp_contact,static/description/icon.png"-->
+<!--                  action="res_partner_action_customer_inherit_action"-->
+<!--                  sequence="15">-->
+<!--        </menuitem>-->
+        <record id="account.res_partner_view_search" model="ir.ui.view">
+            <field name="active">False</field>
+        </record>
+    </data>
+</odoo>

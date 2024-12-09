@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="spa_sale_view_stock_quant_tree_editable_inherit" model="ir.ui.view">
+            <field name="name">spa_sale_view_stock_quant_tree_editable_inherit</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="before">
+                     <field name="product_tmpl_id" readonly="context.get('single_product', False) or id"
+                            string="Sản phẩm"
+                            context="{'form_view_ref': 'spa_sale.product_template_consu_form_view_inherit'}"
+                            force_save="1" options="{'no_create': True}" widget="many2one"/>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="column_invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="spa_sale_view_stock_quant_form_editable_inherit" model="ir.ui.view">
+            <field name="name">spa_sale_view.stock.quant.form.editable.inherit</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_form_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="before">
+                    <field name="product_tmpl_id" string="Sản phẩm" readonly="0" options="{'no_create': True}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sale.report_sales_team" model="ir.ui.menu">
+        <field name="groups_id" eval="False"/>
+        <field name="action" eval="False"/>
+    </record>
+
+    <menuitem id="sale_spa_regimen_menu"
+              name="Liệu trình"
+              action="spa_regimen.spa_regimen_action"
+              parent="sale.sale_menu_root"
+              sequence="8"/>
+
+    <menuitem id="sale_loyalty_program_discount_loyalty_menu"
+              name="Discount"
+              action="spa_sale.sale_loyalty_program_discount_loyalty_action"
+              groups="sales_team.group_sale_salesman"
+              web_icon="spa_sale,static/description/gift-box.png"
+              sequence="32"/>
+
+    <menuitem id="sale.res_partner_menu"
+              name="Customers"
+              action="account.res_partner_action_customer"
+              groups="sales_team.group_sale_salesman"
+              web_icon="spa_sale,static/description/customer.png"
+              sequence="35"/>
+
+    <menuitem id="res_partner_supplier_menu"
+              name="Vendor"
+              action="account.res_partner_action_supplier"
+              groups="sales_team.group_sale_salesman"
+              web_icon="spa_sale,static/description/vendor.png"
+              sequence="37"/>
+
+
+    <menuitem id="sale.product_menu_catalog" active="False"/>
+
+
+    <!--Menu item for Products-->
+    <menuitem id="spa_product_menu_catalog"
+              name="Sản phẩm"
+              web_icon="spa_sale,static/description/box.png"
+              sequence="30"/>
+
+    <menuitem id="product_template_consu_menu"
+                  name="Sản phẩm"
+                  parent="spa_sale.spa_product_menu_catalog"
+                  action="product_template_consu_action"
+                  sequence="10"/>
+
+    <menuitem id="product_category_product_menu"
+                  name="Danh mục sản phẩm"
+                  parent="spa_sale.spa_product_menu_catalog"
+                  action="product_category_product_action"
+                  sequence="99"/>
+
+    <!--<menuitem id="sale_hr_employee_menu"
+              name="Nhân viên"
+              action="hr.open_view_employee_list_my"
+              parent="sale.sale_menu_root"
+              sequence="40"/>-->
+
+</odoo>

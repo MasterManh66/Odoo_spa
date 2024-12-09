@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="revenue_pop_view_form" model="ir.ui.view">
+            <field name="name">revenue_pop_view_form</field>
+            <field name="model">revenue.pop</field>
+            <field name="arch" type="xml">
+                <form string="Báo cáo doanh thu">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date_start"/>
+                                <field name="type"/>
+                            </group>
+                            <group>
+                                <field name="date_end"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Xác nhận" name="action_done" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Hủy" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="revenue_pop_action" model="ir.actions.act_window">
+            <field name="name">Báo cáo doanh thu</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">revenue.pop</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="sale_order_report"
+                  name="Báo cáo"
+                  sequence="49"
+                  parent="sale.sale_menu_root"/>
+        <menuitem id="revenue_pop_menu"
+                  name="Báo cáo doanh thu"
+                  parent="spa_sale.sale_order_report"
+                  action="revenue_pop_action"
+                  sequence="5"/>
+    </data>
+</odoo>

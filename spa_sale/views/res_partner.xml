@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partners_form_inherit_sale" model="ir.ui.view">
+            <field name="name">res_partner.view.form.sale</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="sale.res_partner_view_buttons"/>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+                    <attribute name="invisible">is_supplier</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+#. module: account
+#: model:ir.model.fields,field_description:account.field_product_product__taxes_id
+#: model:ir.model.fields,field_description:account.field_product_template__taxes_id
+msgid "Customer Taxes"
+msgstr "Thuế"

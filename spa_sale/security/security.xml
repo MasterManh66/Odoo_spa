@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="show_menu_sales_team" model="res.groups">
+        <field name="name">Show Menu</field>
+    </record>
+</odoo>

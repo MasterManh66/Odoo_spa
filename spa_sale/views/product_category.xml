@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_category_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.category.form.view.inherit</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="type"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_category_service_tree_view" model="ir.ui.view">
+            <field name="name">product.category.service.tree.view</field>
+            <field name="model">product.category</field>
+            <field name="arch" type="xml">
+                <tree string="Danh mục dịch vụ">
+                    <field name="display_name" string="Danh mục dịch vụ"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_category_service_action" model="ir.actions.act_window">
+            <field name="name">Danh mục dịch vụ</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.category</field>
+            <field name="domain">[('type', '=', 'service')]</field>
+            <field name="context">{'default_type': 'service'}</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('product_category_service_tree_view')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('product.product_category_form_view')})
+                     ]"/>
+        </record>
+        <record id="product_category_product_action" model="ir.actions.act_window">
+            <field name="name">Danh mục sản phẩm</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.category</field>
+            <field name="domain">[('type', '=', 'product')]</field>
+            <field name="context">{'default_type': 'product'}</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="product_category_service_menu"
+                  name="Danh mục dịch vụ"
+                  parent="spa_sale.product_service_menu"
+                  action="product_category_service_action"
+                  sequence="20"/>
+
+    </data>
+</odoo>

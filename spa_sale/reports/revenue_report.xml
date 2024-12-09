@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_revenue_report" model="ir.actions.report">
+            <field name="name">Báo cáo doanh thu</field>
+            <field name="model">revenue.pop</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">report_revenue_report</field>
+            <field name="report_file">report_revenue_report</field>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" ref="model_revenue_pop"/>
+            <field name="binding_view_types">form</field>
+        </record>
+    </data>
+</odoo>

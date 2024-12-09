@@ -1,0 +1,335 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spa_sale
+# 	* sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 10:13+0000\n"
+"PO-Revision-Date: 2024-07-17 10:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"o_stat_text\">Forecasted</span>"
+msgstr "<span class=\"o_stat_text\">Được dự báo</span>"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"o_stat_text\">In:</span>"
+msgstr "<span class=\"o_stat_text\">Nhập:</span>"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"o_stat_text\">On Hand</span>"
+msgstr "<span class=\"o_stat_text\">Hiện có</span>"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"o_stat_text\">Out:</span>"
+msgstr "<span class=\"o_stat_text\">Xuất:</span>"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"o_stat_text\">Purchased</span>"
+msgstr "<span class=\"o_stat_text\">Đã mua</span>"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"o_stat_text\">Sold</span>"
+msgstr "<span class=\"o_stat_text\">Đã bán</span>"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+msgid "<span class=\"oe_inline\">%</span>"
+msgstr ""
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_consu_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_service_form_view
+msgid "<span class=\"oe_inline\">đ</span>"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.ui.menu,name:spa_sale.product_pricelist_menu
+msgid "Bảng giá"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model,name:spa_sale.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: spa_sale
+#: model_terms:ir.actions.act_window,help:spa_sale.sale_loyalty_program_discount_loyalty_action
+msgid "Create one from scratch, or use a templates below:"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.actions.act_window,name:spa_sale.product_category_service_action
+#: model:ir.ui.menu,name:spa_sale.product_category_service_menu
+msgid "Danh mục dịch vụ"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.actions.act_window,name:spa_sale.product_category_product_action
+#: model:ir.ui.menu,name:spa_sale.product_category_product_menu
+msgid "Danh mục sản phẩm"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.actions.act_window,name:spa_sale.sale_loyalty_program_discount_loyalty_action
+#: model:ir.ui.menu,name:spa_sale.sale_loyalty_program_discount_loyalty_menu
+msgid "Discount"
+msgstr "Khuyến mãi"
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__display_name
+msgid "Display Name"
+msgstr "Hiển thị tên"
+
+#. module: spa_sale
+#: model:ir.actions.act_window,name:spa_sale.product_template_service_action
+#: model:ir.model.fields.selection,name:spa_sale.selection__product_category__type__service
+#: model:ir.ui.menu,name:spa_sale.product_service_menu
+#: model:ir.ui.menu,name:spa_sale.product_template_service_menu
+msgid "Dịch vụ"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order__email_partner
+msgid "Email"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_product__price_purchase
+#: model:ir.model.fields,field_description:spa_sale.field_product_template__price_purchase
+msgid "Giá mua"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_product__discount
+#: model:ir.model.fields,field_description:spa_sale.field_product_template__discount
+msgid "Hoa hồng"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_product__hourly_discount
+#: model:ir.model.fields,field_description:spa_sale.field_product_product__overtime_discount
+#: model:ir.model.fields,field_description:spa_sale.field_product_template__hourly_discount
+#: model:ir.model.fields,field_description:spa_sale.field_product_template__overtime_discount
+msgid "Hoa hồng ngoài giờ"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__id
+msgid "ID"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order__technicians_id
+msgid "Kỹ thuật viên"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spa_sale
+#. odoo-python
+#: code:addons/spa_sale/models/sale_order.py:0
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order__regiment_ids
+#: model:ir.ui.menu,name:spa_sale.sale_spa_regimen_menu
+#: model_terms:ir.ui.view,arch_db:spa_sale.sale_order_form_inherit
+#, python-format
+msgid "Liệu trình"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_category__type
+msgid "Loại danh mục"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model,name:spa_sale.model_ir_ui_menu
+msgid "Menu"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__product_id
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__product_tmpl_id
+msgid "Nguyên liệu"
+msgstr ""
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.sale_order_form_inherit
+msgid "Ngày đặt lịch"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order_line__employee_sale_id
+msgid "Nhân viên bán hàng"
+msgstr ""
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.sale_order_form_inherit
+msgid "Nhân viên tạo lịch"
+msgstr ""
+
+#. module: spa_sale
+#: model_terms:ir.actions.act_window,help:spa_sale.sale_loyalty_program_discount_loyalty_action
+msgid "No program found."
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model,name:spa_sale.model_product_template
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: spa_sale
+#: model:ir.model,name:spa_sale.model_product_category
+msgid "Product Category"
+msgstr "Danh mục sản phẩm"
+
+#. module: sale
+#. odoo-python
+#: code:addons/sale/models/sale_order.py:0
+#: model:ir.model,name:sale.model_sale_order
+#: model:ir.model.fields,field_description:sale.field_res_partner__sale_order_ids
+#: model:ir.model.fields,field_description:sale.field_res_users__sale_order_ids
+#: model:ir.model.fields.selection,name:sale.selection__sale_order__state__sale
+#: model:ir.model.fields.selection,name:sale.selection__sale_report__order_reference__sale_order
+#: model:ir.model.fields.selection,name:sale.selection__sale_report__state__sale
+#: model_terms:ir.ui.view,arch_db:sale.product_document_search
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_view_activity
+#: model_terms:ir.ui.view,arch_db:sale.view_order_form
+#, python-format
+msgid "Sales Order"
+msgstr "Đơn bán hàng"
+
+#. module: spa_sale
+#: model:ir.model,name:spa_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Dòng đơn bán hàng"
+
+#. module: spa_sale
+#: model:res.groups,name:spa_sale.show_menu_sales_team
+msgid "Show Menu"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order__state
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: spa_sale
+#: model:ir.actions.act_window,name:spa_sale.product_template_consu_action
+#: model:ir.model.fields.selection,name:spa_sale.selection__product_category__type__product
+#: model:ir.ui.menu,name:spa_sale.product_template_consu_menu
+msgid "Sản phẩm"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order__regiment_count
+msgid "Số lượng liệu trình"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.ui.menu,name:spa_sale.res_partner_supplier_menu
+msgid "Vendor"
+msgstr "Nhà cung cấp"
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.sale_order_form_inherit
+msgid "Xác nhận"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model,name:spa_sale.model_product_bom
+msgid "product.bom"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_sale_order__mobile_partner
+msgid "Điện thoại"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields.selection,name:spa_sale.selection__sale_order__state__booking
+msgid "Đặt lịch"
+msgstr ""
+
+#. module: spa_sale
+#: model:ir.model.fields,field_description:spa_sale.field_product_bom__quantitative
+msgid "Định lượng"
+msgstr ""
+
+#. module: spa_sale
+#: model_terms:ir.ui.view,arch_db:spa_sale.product_template_service_form_view
+msgid "Định mức"
+msgstr ""
+
+#. module: sale
+#: model:ir.ui.menu,name:sale.menu_sale_order
+msgid "Orders"
+msgstr "Đơn hàng"
+
+#. module: sale
+#: model:ir.ui.menu,name:sale.menu_sale_quotations
+msgid "Quotations"
+msgstr "Báo giá"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.view_order_form
+msgid "Tax excl."
+msgstr "Tổng tiền"
+
+#. module: loyalty
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__program_type
+msgid "Program Type"
+msgstr "Loại khuyến mãi"
+
+#. module: loyalty
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__coupon_count_display
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_tree
+msgid "Items"
+msgstr "Số lượng khuyến mãi"
+
+#. module: loyalty
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__code
+msgid "Code"
+msgstr "Mã giảm giá"
+
+#. module: loyalty
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__partner_id
+msgid "Partner"
+msgstr "Khách hàng"

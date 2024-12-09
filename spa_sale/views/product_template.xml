@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_template_form_view_inherit_sale" model="ir.ui.view">
+            <field name="name">product.template.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="sale_ok" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="purchase_ok" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="product_tag_ids" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="detailed_type" position="after">
+                    <field name="categ_id" position="move"/>
+                    <field name="regimen_count" invisible="1"/>
+                </field>
+                <xpath expr="//page[@name='general_information']/group/group[2]/button" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <field name="invoice_policy" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="product_tooltip" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <xpath expr="//page[@name='sales']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('fst-italic')]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div[@name='standard_price_uom']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//label[@for='standard_price']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//div[@name='pricing']" position="after">
+                    <label for="list_price"/>
+                    <div name="price_sale" class="oe_inline">
+                        <field name="list_price" class="oe_inline" />
+                        <span class="oe_inline">đ</span>
+                    </div>
+                </xpath>
+                <xpath expr="//div[@name='pricing']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//label[@for='list_price']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='purchase']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='inventory']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+<!--                <xpath expr="//notebook" position="inside">-->
+<!--                    <page string="Bảo hành" name="guarantee" domain="[('detailed_type', '=', 'service']">-->
+<!--                        <group>-->
+<!--                            <group name="guarantee">-->
+<!--                                <label for="guarantee_time"/>-->
+<!--                                <div name="guarantee_time" class="oe_inline">-->
+<!--                                    <field name="guarantee_time" class="oe_inline"/>-->
+<!--                                    <span class="oe_inline">tháng</span>-->
+<!--                                </div>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </page>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+
+        <record id="product_template_inherit_form_view" model="ir.ui.view">
+            <field name="name">product.template.inherit.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='barcode']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="product_template_service_form_view" model="ir.ui.view">
+            <field name="name">product.template.service.form.view</field>
+            <field name="model">product.template</field>
+            <field name="mode">primary</field>
+            <field name="priority">1000</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='name']" position="attributes">
+                    <attribute name="string">Tên dịch vụ</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">VD: Châm cứu</attribute>
+                </xpath>
+                <xpath expr="//field[@name='can_be_expensed']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='detailed_type']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//div[@name='price_sale']" position="after">
+                    <label for="price_purchase_per_uom" string="Giá bán/buổi"/>
+                    <div name="price_purchase_per_uom" class="oe_inline">
+                        <field name="price_purchase_per_uom" class="oe_inline" digits="[9,0]"/>
+                        <span class="oe_inline">đ</span>
+                    </div>
+                    <label for="discount" string="Hoa hồng bán"/>
+                    <div name="discount" class="oe_inline">
+                        <field name="discount" class="oe_inline"/>
+                        <span class="oe_inline">%</span>
+                    </div>
+                    <label for="hourly_discount" string="Hoa hồng trong giờ"/>
+                    <div name="hourly_discount" class="oe_inline">
+                        <field name="hourly_discount" class="oe_inline"/>
+                        <span class="oe_inline">đ</span>
+                    </div>
+                    <label for="overtime_discount"/>
+                    <div name="overtime_discount" class="oe_inline">
+                        <field name="overtime_discount" class="oe_inline"/>
+                        <span class="oe_inline">đ</span>
+                    </div>
+                </xpath>
+                <field name="categ_id" position="attributes">
+                    <attribute name="context">{'defaut_type': 'service','tree_view_ref':'spa_sale.product_category_service_tree_view'}</attribute>
+                    <attribute name="domain">[('type','=','service')]</attribute>
+                    <attribute name="default">False</attribute>
+                    <attribute name="string">Danh mục dịch vụ</attribute>
+                </field>
+                <field name="categ_id" position="after">
+                    <field name="regimen_count" invisible="detailed_type != 'service'"/>
+                    <field name="regimen_donate" invisible="detailed_type != 'service'"/>
+                    <field name="duration" invisible="detailed_type != 'service'"/>
+                </field>
+                <xpath expr="//div[@class='oe_button_box']" position="inside">
+                    <button name="action_list_sale_sold" 
+                            type="object" 
+                            invisible="detailed_type != 'service'"
+                            class="d-flex justify-content-center"
+                            icon="fa-shopping-cart" >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <field name="order_sold" class="oe_inline"/>
+                                </span>
+                                <span class="o_stat_text">Đã bán</span>
+                            </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+        <record id="spa_sale_search_product_service_view" model="ir.ui.view">
+            <field name="name">mrp.product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='type']/.." position="replace">
+                    <group expand="1" string="Group By">
+                        <filter string="Loại dịch vụ" name="type" context="{'group_by':'type'}" invisible="1"/>
+                        <filter string="Danh mục dịch vụ" name="categ_id" context="{'group_by':'categ_id'}" invisible="1"/>
+                        <!--<filter string="Danh mục dịch vụ POS" name="pos_categ_ids" context="{'group_by':'pos_categ_ids'}"/>-->
+                    </group>
+                </xpath>
+                <xpath expr="//filter[@name='services']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='filter_to_sell']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='filter_to_purchase']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='consumable']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//filter[@name='filter_to_expense']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_service_action" model="ir.actions.act_window">
+            <field name="name">Dịch vụ</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="domain">[('detailed_type','=','service')]</field>
+            <field name="context">{'default_detailed_type':'service'}</field>
+            <field name="search_view_id" ref="spa_sale.spa_sale_search_product_service_view"/>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('product.product_template_kanban_view')}),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('product.product_template_tree_view')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('product_template_service_form_view')})
+                     ]"/>
+        </record>
+
+        <record id="product_template_consu_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.consu.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="mode">primary</field>
+            <field name="priority">900</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_button_box']" position="inside">
+                    <t groups="stock.group_stock_user">
+                        <field name="tracking" invisible="1"/>
+                        <field name="show_on_hand_qty_status_button" invisible="1"/>
+                        <field name="show_forecasted_qty_status_button" invisible="1"/>
+                        <button type="object"
+                            name="action_update_quantity_on_hand"
+                            invisible="not show_on_hand_qty_status_button"
+                            class="oe_stat_button" icon="fa-cubes">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <field name="qty_available" nolabel="1" class="oe_inline"/>
+                                    <field name="uom_name" class="oe_inline"/>
+                                </span>
+                                <span class="o_stat_text">On Hand</span>
+                            </div>
+                        </button>
+                        <button type="object"
+                            name="action_product_tmpl_forecast_report"
+                            invisible="not show_forecasted_qty_status_button"
+                            context="{'default_product_tmpl_id': id}"
+                            class="oe_stat_button" icon="fa-area-chart">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <field name="virtual_available" nolabel="1" class="oe_inline"/>
+                                    <field name="uom_name" class="oe_inline"/>
+                                </span>
+                                <span class="o_stat_text">Forecasted</span>
+                            </div>
+                        </button>
+                        <button type="object"
+                            name= "action_view_stock_move_lines"
+                            invisible="type not in ['product', 'consu']"
+                            class="oe_stat_button" icon="fa-exchange"
+                            groups="stock.group_stock_user">
+                            <div class="d-flex flex-column">
+                                <div class="o_field_widget o_stat_info align-items-baseline flex-row gap-1 me-1">
+                                    <span class="o_stat_text">In:</span>
+                                    <span class="o_stat_value"><field name="nbr_moves_in"/></span>
+                                </div>
+                                <div class="o_field_widget o_stat_info align-items-baseline flex-row gap-1 me-1">
+                                    <span class="o_stat_text">Out:</span>
+                                    <span class="o_stat_value"><field name="nbr_moves_out"/></span>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button"
+                            name="action_view_sales"
+                            type="object" icon="fa-signal"
+                            help="Sold in the last 365 days"
+                            groups="sales_team.group_sale_salesman"
+                            invisible="not sale_ok">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <field name="sales_count" widget="statinfo" nolabel="1" class="oe_inline"/>
+                                    <field name="uom_name" class="oe_inline"/>
+                                </span>
+                                <span class="o_stat_text">Sold</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" name="action_view_po"
+                            groups="purchase.group_purchase_user"
+                            type="object" icon="fa-credit-card" invisible="not purchase_ok" help="Purchased in the last 365 days">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value d-flex gap-1">
+                                    <field name="purchased_product_qty" widget="statinfo" nolabel="1" class="oe_inline"/>
+                                    <field name="uom_name"  class="oe_inline"/>
+                                </span>
+                                <span class="o_stat_text">Purchased</span>
+                            </div>
+                        </button>
+                    </t>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">VD: Dầu gội Clear</attribute>
+                </xpath>
+                <xpath expr="//group[@name='operations']//button" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='can_be_expensed']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='detailed_type']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//div[@name='price_sale']" position="after">
+                    <label for="price_purchase"/>
+                    <div name="pricing_purchase" class="oe_inline">
+                        <field name="price_purchase" class="oe_inline"/>
+                        <span class="oe_inline">đ</span>
+                    </div>
+                    <label for="discount"/>
+                    <div name="discount" class="oe_inline">
+                        <field name="discount" class="oe_inline"/>
+                        <span class="oe_inline">%</span>
+                    </div>
+                </xpath>
+                <field name="categ_id" position="attributes">
+                    <attribute name="context">{'default_type': 'product'}</attribute>
+                    <attribute name="default">False</attribute>
+                </field>
+                <field name="categ_id" position="after">
+                    <field name="uom_id" position="move"/>
+                    <field name="uom_po_id" position="move"/>
+                </field>
+            </field>
+        </record>
+        <record id="product_template_form_view_inherit_account" model="ir.ui.view">
+            <field name="name">product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="account.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='invoicing']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="product_template_consu_action" model="ir.actions.act_window">
+            <field name="name">Sản phẩm</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="domain">[('detailed_type','in',('product', 'consu'))]</field>
+            <field name="context">{"sale_multi_pricelist_product_template": 1, 'default_detailed_type':'product'}
+            </field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('product.product_template_kanban_view')}),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('product.product_template_tree_view')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('product_template_consu_form_view_inherit')})
+                     ]"/>
+        </record>
+
+        <record id="product_template_kanban_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.product.kanban.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='list_price']" position="attributes">
+                    <attribute name="widget">monetary</attribute>
+                    <attribute name="options">{'field_digits': False}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_tree_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.tree.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='list_price']" position="after">
+                    <field name="price_purchase" optional="hide" digits="[9,0]" widget="monetary"/>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem id="product_service_menu"
+                  name="Dịch vụ"
+                  web_icon="spa_sale,static/description/icon.png"
+                  sequence="10"
+        >
+
+            <menuitem id="product_template_service_menu"
+                      name="Dịch vụ"
+                      action="product_template_service_action"
+                      sequence="10"/>
+        </menuitem>
+        <menuitem id="sale.menu_sale_invoicing" active="False"/>
+        <menuitem id="sale.menu_product_template_action" active="False"/>
+        <menuitem id="sale.menu_product_pricelist_main" active="False"/>
+        <menuitem id="sale.menu_product_categories" active="False"/>
+
+        <menuitem id="product_pricelist_menu"
+                  name="Bảng giá"
+                  parent="sale.prod_config_main"
+                  action="product.product_pricelist_action2"
+                  groups="product.group_product_pricelist"
+                  sequence="30"/>
+    </data>
+</odoo>

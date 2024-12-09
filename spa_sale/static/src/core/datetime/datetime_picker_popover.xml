@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.DateTimePickerPopover" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='buttons']//span" position="replace">
+            <span>Đồng ý</span>
+        </xpath>
+    </t>
+</templates>
